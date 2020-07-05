@@ -1,0 +1,158 @@
+
+<html>
+<head>
+<style>
+body {
+ background-color:cyan;
+ font-family:"serif ",cursive,san serif;
+}
+h1{
+    text-align:center;
+    background-color:beige;
+}
+p{
+    text-align:center;
+    vertical-align:top;
+}
+table{
+ width:800px;
+ border-collapse:collapse;
+ table-layout:fixed;
+ height:30%
+}
+td{
+ vertical-align:middle;
+ padding:5px;
+ word-wrap:break-word;
+}
+.center{
+ display:block;
+ margin-left:auto;
+ margin-right:auto;
+ width:200px;
+}
+.label.col{
+ text-align:right;
+ font-size:xx-large;
+ font-style:strong;
+}
+.input.col{
+ text-align:left;
+ font-size:medium;
+}
+.prompt.col{
+ text-align:center;
+ font-size:small;
+}
+.button{
+ margin:auto;
+ width:250px;
+ text-align:center;
+ height:40;
+ background-color:#bdbdbd
+}
+#mainitem{
+ text align:center;
+ font-size:xxx-large;
+ font-style:strong;
+}
+#size{
+ text-align:right;
+ font-size:medium;
+}
+#quantity{
+ text-align:left;
+ font-size:medium;
+}
+</style> 
+<title>KORN FUSION</title>
+</head>
+<body>
+<img src="https://tse4.mm.bing.net/th?id=OIP.LtEt0bUJPrIubwXtrf7C8QHaFj&pid=Api&P=0&w=213&h=161" class="center">
+<!--food ordering form-->
+<h1>KORN FUSION</h1>
+<p>cod on homedelivery available</p>
+<!--javascript code for form vaidation-->
+<script>
+function validate() {
+	var Name=document.getElementById("Name").value;
+	var re1=/^[a-zA-Z\s\'\-]{2,15}$/;
+        var phone=document.getElementById("Phone").value;
+	
+	if(re1.test(Name)) {
+		document.getElementById("Nameprompt").style.color="green";
+		document.getElementById("Nameprompt").innerHTML="valid";
+		
+	}
+	else {
+			document.getElementById("Nameprompt").style.color="red";
+			document.getElementById("Nameprompt").innerHTML="enter 2-15 character";
+			return false;
+	}
+        
+
+	if(phone.length<10) {
+		document.getElementById("Numberprompt").style.color="red";
+		document.getElementById("Numberprompt").innerHTML="invalid";
+		
+	}
+	else {
+			document.getElementById("Numberprompt").style.color="green";
+			document.getElementById("Numberprompt").innerHTML="valid";
+			
+	}
+} 
+</script>
+<form onsubmit="validate()">
+<table>
+<tr>
+<td class="label_col">Name:</td>
+<td class="input_col"><input placeholder="Name" id="Name" type="text"></td>
+<td class="prompt_col"><span id="Nameprompt">&nbsp</span></td>
+</tr>
+<tr>
+<td class="label_col">Phone number:</td>
+<td class="input_col"><input placeholder="Phone" id="Phone" type="text"></td>
+<td class="prompt_col"><span id="Numberprompt"></span></td>
+<tr>
+<td class="label_col">Orderdate:</td>
+<td class="input_col"><input name="date" id="date" type="date" value="date"></td>
+</tr>
+<td class="label_col">Address:</td>
+<td class="input_col"><input name="address" id="address" type="text" value="address"></td>
+<td class="prompt_col">Please include the pincode</td>
+</tr>
+</table>
+Choose ur order:
+<table>
+<tr>
+<td>sweet corn:<input id="mainitem" type="checkbox" name="food" value="sweetcorn"></td>
+<td>masala corn:<input id="mainitem" type="checkbox" name="food" value="masalacorn"></td>
+<td>cheesy corn:<input id="mainitem" type="checkbox" name="food" value="chessycorn"></td>
+</tr>
+<tr>
+<td>
+small<input id="size" type="radio" name="price1" value="20"><br>
+medium<input id="size" type="radio" name="price1" value="40"><br>
+large<input id="size" type="radio" name="price1" value="60"><br></td>
+<td>
+small<input id="size" type="radio" name="price2" value="20"><br>
+medium<input id="size" type="radio" name="price2" value="40"><br>
+large<input id="size" type="radio" name="price2" value="60"><br></td>
+<td>
+small<input id="size" type="radio" name="price3" value="20"><br>
+medium<input id="size" type="radio" name="price3" value="40"><br>
+large<input id="size" type="radio" name="price3" value="60"><br></td>
+</tr>
+<tr>
+<td>Quantity:<input id="quantity" type="number" size="10"></td>
+<td>Quantity:<input id="quantity" type="number" size="10"></td>
+<td>Quantity:<input id="quantity" type="number" size="10"></td>
+</tr>
+<tr>
+<td><button class="button" onclick="validate()">Order now</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
